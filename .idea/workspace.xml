@@ -5,80 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c584dd05-b4c8-4bcd-9df9-2ec8fb3e27df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/description.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/Receiver.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/Sender.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/Talk.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/command/RemoteCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/command/set/ExitCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/command/set/MessageCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/common/Common.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step1/de/imut/oop/talkv2/common/SystemExitCode.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/Communicator.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/CommunicatorFactory.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/Receiver.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/Sender.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/Talk.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/command/RemoteCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/command/set/ExitCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/command/set/MessageCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/common/Common.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step2/de/imut/oop/talkv2/common/SystemExitCode.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/Communicator.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/CommunicatorFactory.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/Dispatcher.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/Receiver.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/Sender.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/TalkClient.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/TalkServer.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/command/RemoteCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/command/set/ExitCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/command/set/MessageCommand.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/common/Common.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/step3/de/imut/oop/talkv2/common/SystemExitCode.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pfw-ea2-step1.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/Receiver.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/Sender.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/Talk.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/command/RemoteCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/command/set/ExitCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/command/set/MessageCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/common/Common.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/src/de/imut/oop/talkv2/common/SystemExitCode.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step1/step1.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/Communicator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/CommunicatorFactory.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/Receiver.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/Sender.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/Talk.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/command/RemoteCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/command/set/ExitCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/command/set/MessageCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/common/Common.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/src/de/imut/oop/talkv2/common/SystemExitCode.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step2/step2.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/Communicator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/CommunicatorFactory.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/Dispatcher.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/Receiver.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/Sender.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/TalkClient.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/TalkServer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/command/RemoteCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/command/set/ExitCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/command/set/MessageCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/common/Common.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/src/de/imut/oop/talkv2/common/SystemExitCode.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/step3/step3.iml" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,8 +35,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+            <state relative-caret-position="90">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -251,8 +179,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="289" />
-    <option name="y" value="94" />
+    <option name="x" value="277" />
+    <option name="y" value="129" />
     <option name="width" value="1280" />
     <option name="height" value="799" />
   </component>
@@ -443,16 +371,15 @@
       <option name="presentableId" value="Default" />
       <updated>1542279943904</updated>
       <workItem from="1542279950889" duration="10610000" />
-      <workItem from="1542311542028" duration="221000" />
+      <workItem from="1542311542028" duration="364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10831000" />
+    <option name="totallyTimeSpent" value="10974000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="289" y="94" width="1280" height="799" extended-state="0" />
-    <editor active="true" />
+    <frame x="277" y="129" width="1280" height="799" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -462,7 +389,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.271261" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -821,8 +748,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding />
         </state>
       </provider>
