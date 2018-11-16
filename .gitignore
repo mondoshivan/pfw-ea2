@@ -4,4 +4,5 @@ step2/step2.iml
 step3/step3.iml
 step4/step4.iml
 .idea
-out
+./out
+./src
