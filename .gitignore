@@ -1,8 +1,8 @@
-pfw-ea2-step1.iml
-step1/step1.iml
-step2/step2.iml
-step3/step3.iml
-step4/step4.iml
-.idea
+./pfw-ea2-step1.iml
+./step1/step1.iml
+./step2/step2.iml
+./step3/step3.iml
+./step4/step4.iml
+./.idea
 ./out
 ./src
