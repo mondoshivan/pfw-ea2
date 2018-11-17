@@ -42,18 +42,14 @@ public class Receiver implements Runnable
     {
         try {
             ObjectInputStream in = new ObjectInputStream(new DataInputStream(this.socket.getInputStream()));
-            RemoteCommand username = (RemoteCommand) in.readObject();
             RemoteCommand message;
 
             do
             {
                 message = (RemoteCommand) in.readObject();
-                username.execute();
                 message.execute();
 
-                boradcast(username);
                 boradcast(message);
-                System.out.println("");
             }
             while (!(message instanceof ExitCommand));
 

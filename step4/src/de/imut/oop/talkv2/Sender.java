@@ -48,8 +48,6 @@ public class Sender implements Runnable
         String line = null;
 
         try {
-            // send the username
-            sendCommand(new MessageCommand(TalkClient.userName + ": "));
 
             RemoteCommand command;
             do
@@ -59,7 +57,7 @@ public class Sender implements Runnable
                 if (line.equals("exit.")) {
                     command = new ExitCommand();
                 } else {
-                    command = new MessageCommand(line);
+                    command = new MessageCommand(TalkClient.userName, line);
                 }
 
                 sendCommand(command);
