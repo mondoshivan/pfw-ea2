@@ -7,6 +7,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.List;
 
 /**
  * A simple receiver of network traffic.
@@ -22,8 +23,14 @@ public class Receiver implements Runnable
         this.socket = socket;
     }
 
-    public void sendMessage(String message) {
-        System.out.println(message);
+    private void boradcast(RemoteCommand command) {
+        CommunicatorFactory factory = CommunicatorFactory.getInstance();
+        List<Communicator> communicators = factory.getCommunicators();
+        for (Communicator communicator : communicators) {
+            if (!communicator.isServer()) continue; // only the server should broadcast
+            if (communicator.getReceiver() == this) continue; // client should not receive command from itself
+            communicator.getSender().sendCommand(command);
+        }
     }
 
     /*
@@ -35,15 +42,20 @@ public class Receiver implements Runnable
     {
         try {
             ObjectInputStream in = new ObjectInputStream(new DataInputStream(this.socket.getInputStream()));
-            RemoteCommand command = (RemoteCommand) in.readObject();
-            command.execute();
+            RemoteCommand username = (RemoteCommand) in.readObject();
+            RemoteCommand message;
 
             do
             {
-                command = (RemoteCommand) in.readObject();
-                command.execute();
+                message = (RemoteCommand) in.readObject();
+                username.execute();
+                message.execute();
+
+                boradcast(username);
+                boradcast(message);
+                System.out.println("");
             }
-            while (!(command instanceof ExitCommand));
+            while (!(message instanceof ExitCommand));
 
             this.socket.close();
         }

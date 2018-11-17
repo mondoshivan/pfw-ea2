@@ -6,7 +6,7 @@ public class Communicator {
 
     private Sender sender;
     private Receiver receiver;
-    private Boolean isServer;
+    private Boolean isServer = false;
 
     public Communicator(Socket socket) {
         this.sender = new Sender(socket);

@@ -17,10 +17,24 @@ import java.net.Socket;
 public class Sender implements Runnable
 {
     private Socket socket;
+    private ObjectOutputStream outputStream;
 
     public Sender(Socket socket)
     {
         this.socket = socket;
+        try {
+            outputStream = new ObjectOutputStream(new DataOutputStream(socket.getOutputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendCommand(RemoteCommand command) {
+        try {
+            this.outputStream.writeObject(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /*
@@ -31,16 +45,13 @@ public class Sender implements Runnable
     public final void run()
     {
         BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
-        ObjectOutputStream outputStream = null;
         String line = null;
 
         try {
-            RemoteCommand command;
-            outputStream = new ObjectOutputStream(new DataOutputStream(socket.getOutputStream()));
-            outputStream.writeObject(
-                    new MessageCommand(TalkClient.userName)
-            );
+            // send the username
+            sendCommand(new MessageCommand(TalkClient.userName + ": "));
 
+            RemoteCommand command;
             do
             {
                 line = inputReader.readLine();
@@ -51,7 +62,7 @@ public class Sender implements Runnable
                     command = new MessageCommand(line);
                 }
 
-                outputStream.writeObject(command);
+                sendCommand(command);
             } while (!(command instanceof ExitCommand));
 
             this.socket.close();
