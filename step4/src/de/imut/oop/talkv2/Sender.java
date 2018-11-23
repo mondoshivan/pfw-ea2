@@ -3,6 +3,7 @@ package de.imut.oop.talkv2;
 import com.sun.tools.javah.Util;
 import de.imut.oop.talkv2.client.command.set.MessageCommand;
 import de.imut.oop.talkv2.command.RemoteCommand;
+import de.imut.oop.talkv2.server.command.set.BroadcastCommand;
 import de.imut.oop.talkv2.server.command.set.ExitCommand;
 
 import java.io.*;
@@ -18,15 +19,36 @@ public class Sender implements Runnable
 {
     private Socket socket;
     private ObjectOutputStream outputStream;
+    private BufferedReader inputReader;
+    private String userName;
 
     public Sender(Socket socket)
     {
         this.socket = socket;
+        inputReader = new BufferedReader(new InputStreamReader(System.in));
+
         try {
             outputStream = new ObjectOutputStream(new DataOutputStream(socket.getOutputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private RemoteCommand getCommand() {
+        String line = null;
+        try {
+            line = inputReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        RemoteCommand command;
+        if (line.equals("exit.")) {
+            command = new ExitCommand();
+        } else {
+            command = new BroadcastCommand(userName, line);
+        }
+        return command;
     }
 
     public void sendCommand(RemoteCommand command) {
@@ -44,22 +66,11 @@ public class Sender implements Runnable
      */
     public final void run()
     {
-        BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
-        String line = null;
-
         try {
-
             RemoteCommand command;
             do
             {
-                line = inputReader.readLine();
-
-                if (line.equals("exit.")) {
-                    command = new ExitCommand();
-                } else {
-                    command = new MessageCommand(TalkClient.userName, line);
-                }
-
+                command = getCommand();
                 sendCommand(command);
             } while (!(command instanceof ExitCommand));
 
@@ -71,5 +82,9 @@ public class Sender implements Runnable
 
         System.out.println("Communication ended.");
         System.exit(0);
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

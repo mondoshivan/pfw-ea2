@@ -1,12 +1,15 @@
 package de.imut.oop.talkv2;
 
+import de.imut.oop.talkv2.command.CommandListener;
 import de.imut.oop.talkv2.command.RemoteCommand;
 import de.imut.oop.talkv2.server.command.set.ExitCommand;
+import de.imut.oop.talkv2.server.command.set.ServerCommand;
 
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,19 +20,21 @@ import java.util.List;
 public class Receiver implements Runnable
 {
     private Socket socket;
+    private List<CommandListener> listeners;
 
     public Receiver(Socket socket)
     {
         this.socket = socket;
+        this.listeners = new ArrayList<>();
     }
 
-    private void boradcast(RemoteCommand command) {
-        CommunicatorFactory factory = CommunicatorFactory.getInstance();
-        List<Communicator> communicators = factory.getCommunicators();
-        for (Communicator communicator : communicators) {
-            if (!communicator.isServer()) continue; // only the server should broadcast
-            if (communicator.getReceiver() == this) continue; // client should not receive command from itself
-            communicator.getSender().sendCommand(command);
+    public void addListener(CommandListener listener) {
+        listeners.add(listener);
+    }
+
+    private void notifyListeners(RemoteCommand command) {
+        for (CommandListener listener : listeners) {
+            listener.call(command);
         }
     }
 
@@ -42,16 +47,19 @@ public class Receiver implements Runnable
     {
         try {
             ObjectInputStream in = new ObjectInputStream(new DataInputStream(this.socket.getInputStream()));
-            RemoteCommand message;
+            RemoteCommand command;
 
             do
             {
-                message = (RemoteCommand) in.readObject();
-                message.execute();
+                command = (RemoteCommand) in.readObject();
+                if (command instanceof ServerCommand) {
+                    notifyListeners(command);
+                } else {
+                    command.execute();
+                }
 
-                boradcast(message);
             }
-            while (!(message instanceof ExitCommand));
+            while (!(command instanceof ExitCommand));
 
             this.socket.close();
         }

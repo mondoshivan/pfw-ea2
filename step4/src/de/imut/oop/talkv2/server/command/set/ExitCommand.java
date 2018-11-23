@@ -2,7 +2,7 @@ package de.imut.oop.talkv2.server.command.set;
 
 import de.imut.oop.talkv2.command.RemoteCommand;
 
-public class ExitCommand extends RemoteCommand {
+public class ExitCommand extends ServerCommand {
 
     /**
      * Executes stored exit command,

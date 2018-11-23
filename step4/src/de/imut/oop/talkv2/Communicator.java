@@ -6,7 +6,7 @@ public class Communicator {
 
     private Sender sender;
     private Receiver receiver;
-    private Boolean isServer = false;
+    private int id;
 
     public Communicator(Socket socket) {
         this.sender = new Sender(socket);
@@ -26,11 +26,11 @@ public class Communicator {
         return receiver;
     }
 
-    public Boolean isServer() {
-        return isServer;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void isServer(Boolean server) {
-        isServer = server;
+    public int getId() {
+        return id;
     }
 }

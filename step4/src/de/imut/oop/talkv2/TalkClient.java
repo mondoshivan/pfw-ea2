@@ -10,7 +10,6 @@ public class TalkClient {
 
     private static final int DEFAULT_SERVER_PORT = 2048;
     private static final String DEFAULT_SERVER_IP = "localhost";
-    public static String userName = "";
 
     //------------------------------------------
     private Socket getSocket(String serverIP, int serverPort) {
@@ -35,7 +34,7 @@ public class TalkClient {
     public static void main(final String[] args) {
         String serverIP = DEFAULT_SERVER_IP;
         int serverPort = DEFAULT_SERVER_PORT;
-        TalkClient.userName = Common.getUserName();
+        String userName = Common.getUserName();
 
         switch (args.length)
         {
@@ -48,7 +47,8 @@ public class TalkClient {
         TalkClient client = new TalkClient();
         Socket socket = client.getSocket(serverIP, serverPort);
         CommunicatorFactory factory = CommunicatorFactory.getInstance();
-        factory.createCommunicator(socket);
+        Communicator communicator = factory.createCommunicator(socket);
+        communicator.getSender().setUserName(userName);
     }
 
 }
