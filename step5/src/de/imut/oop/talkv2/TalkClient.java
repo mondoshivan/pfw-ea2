@@ -46,8 +46,7 @@ public class TalkClient {
 
         TalkClient client = new TalkClient();
         Socket socket = client.getSocket(serverIP, serverPort);
-        CommunicatorFactory factory = CommunicatorFactory.getInstance();
-        Communicator communicator = factory.createCommunicator(socket);
+        Communicator communicator = new Communicator(socket);
         communicator.getSender().setUserName(userName);
     }
 

@@ -34,7 +34,11 @@ public class Receiver implements Runnable
 
     private void notifyListeners(RemoteCommand command) {
         for (CommandListener listener : listeners) {
-            listener.call(command);
+            listener.call(
+                    command,
+                    socket.getInetAddress().toString(),
+                    socket.getPort()
+            );
         }
     }
 
@@ -57,19 +61,13 @@ public class Receiver implements Runnable
                 } else {
                     command.execute();
                 }
-
             }
-            while (!(command instanceof ExitCommand));
-
-            this.socket.close();
+            while (true);
         }
         catch (IOException e) {
             System.out.println("IO-Error: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-        System.out.println("Client has quit the connection.");
-        System.exit(1);
     }
 }

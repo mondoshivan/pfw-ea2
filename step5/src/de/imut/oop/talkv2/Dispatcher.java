@@ -3,7 +3,9 @@ package de.imut.oop.talkv2;
 import de.imut.oop.talkv2.client.command.set.MessageCommand;
 import de.imut.oop.talkv2.command.CommandListener;
 import de.imut.oop.talkv2.command.RemoteCommand;
+import de.imut.oop.talkv2.common.SystemExitCode;
 import de.imut.oop.talkv2.server.command.set.BroadcastCommand;
+import de.imut.oop.talkv2.server.command.set.ExitCommand;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -20,7 +22,7 @@ public class Dispatcher implements Runnable, CommandListener {
         this.factory = CommunicatorFactory.getInstance();
     }
 
-    public void broadcast(BroadcastCommand broadcastCommand) {
+    private void broadcast(BroadcastCommand broadcastCommand) {
         List<Communicator> communicators = factory.getCommunicators();
         String user = broadcastCommand.getUser();
         String message = broadcastCommand.getMessage();
@@ -32,6 +34,30 @@ public class Dispatcher implements Runnable, CommandListener {
             System.out.println(" -> redirecting to client " + id);
             communicator.getSender().sendCommand(messageCommand);
         }
+    }
+
+    private void exit(ExitCommand command, String ip, int port) {
+        List<Communicator> communicators = factory.getCommunicators();
+        for (Communicator communicator : communicators) {
+            Socket socket = communicator.getSender().getSocket();
+            String socketIp = socket.getInetAddress().toString();
+            int socketPort = socket.getPort();
+            if (ip.equals(socketIp) && port == socketPort) {
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                factory.removeCommunicator(communicator);
+                break;
+            }
+        }
+        if (communicators.size() == 0) quit();
+    }
+
+    private void quit() {
+        System.out.println("No more clients available - shutting down server");
+        System.exit(SystemExitCode.NORMAL.getCode());
     }
 
     @Override
@@ -52,7 +78,8 @@ public class Dispatcher implements Runnable, CommandListener {
     }
 
     @Override
-    public void call(RemoteCommand command) {
+    public void call(RemoteCommand command, String ip, int port) {
         if (command instanceof BroadcastCommand) broadcast((BroadcastCommand) command);
+        if (command instanceof ExitCommand) exit((ExitCommand) command, ip, port);
     }
 }

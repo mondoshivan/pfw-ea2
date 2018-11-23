@@ -27,6 +27,11 @@ public class CommunicatorFactory {
         this.communicators.add(c);
         return c;
     }
+
+    public void removeCommunicator(Communicator communicator) {
+        communicators.remove(communicator);
+    }
+
     public List<Communicator> getCommunicators() {
         return communicators;
     }

@@ -1,6 +1,7 @@
 package de.imut.oop.talkv2;
 
 import de.imut.oop.talkv2.command.RemoteCommand;
+import de.imut.oop.talkv2.common.SystemExitCode;
 import de.imut.oop.talkv2.server.command.set.BroadcastCommand;
 import de.imut.oop.talkv2.server.command.set.ExitCommand;
 
@@ -26,7 +27,7 @@ public class Sender implements Runnable
         inputReader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            outputStream = new ObjectOutputStream(new DataOutputStream(socket.getOutputStream()));
+            outputStream = new ObjectOutputStream(new DataOutputStream(getSocket().getOutputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,6 +58,10 @@ public class Sender implements Runnable
         }
     }
 
+    public Socket getSocket() {
+        return socket;
+    }
+
     /*
      * Sender thread activation
      *
@@ -72,14 +77,14 @@ public class Sender implements Runnable
                 sendCommand(command);
             } while (!(command instanceof ExitCommand));
 
-            this.socket.close();
+            getSocket().close();
         }
         catch (IOException e) {
             System.out.println("IO-Error: " + e.getMessage());
         }
 
         System.out.println("Communication ended.");
-        System.exit(0);
+        System.exit(SystemExitCode.NORMAL.getCode());
     }
 
     public void setUserName(String userName) {
