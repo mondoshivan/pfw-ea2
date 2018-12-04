@@ -43,6 +43,7 @@ public class Dispatcher implements Runnable, CommandListener {
             String socketIp = socket.getInetAddress().toString();
             int socketPort = socket.getPort();
             if (ip.equals(socketIp) && port == socketPort) {
+                communicator.getSender().sendCommand(exitCommand);
                 try {
                     socket.close();
                 } catch (IOException e) {
