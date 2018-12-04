@@ -36,7 +36,7 @@ public class Dispatcher implements Runnable, CommandListener {
         }
     }
 
-    private void exit(ExitCommand command, String ip, int port) {
+    private void exit(ExitCommand exitCommand, String ip, int port) {
         List<Communicator> communicators = factory.getCommunicators();
         for (Communicator communicator : communicators) {
             Socket socket = communicator.getSender().getSocket();
@@ -57,7 +57,9 @@ public class Dispatcher implements Runnable, CommandListener {
 
     private void quit() {
         System.out.println("No more clients available - shutting down server");
-        System.exit(SystemExitCode.NORMAL.getCode());
+        SystemExitCode code = SystemExitCode.NORMAL;
+        ExitCommand eC = new ExitCommand(code);
+        eC.execute();
     }
 
     @Override
@@ -69,6 +71,9 @@ public class Dispatcher implements Runnable, CommandListener {
                 String clientIP = socket.getInetAddress().toString();
                 int clientPort = socket.getPort();
                 System.out.println("Connection request from " + clientIP + ":" + clientPort);
+                System.out.println("Trying to connect to remote " + clientIP + ":" + clientPort);
+                System.out.println("Connection established to remote " + clientIP + ":" + clientPort + 
+                		" from local adress " + socket.getLocalAddress() + ":" + socket.getLocalPort());
                 Communicator communicator = factory.createCommunicator(socket);
                 communicator.getReceiver().addListener(this);
             } catch (IOException e) {

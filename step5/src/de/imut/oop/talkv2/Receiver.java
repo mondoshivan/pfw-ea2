@@ -61,8 +61,8 @@ public class Receiver implements Runnable
                 } else {
                     command.execute();
                 }
-            }
-            while (true);
+                
+            } while(!(command instanceof ExitCommand)); 
         }
         catch (IOException e) {
             System.out.println("IO-Error: " + e.getMessage());

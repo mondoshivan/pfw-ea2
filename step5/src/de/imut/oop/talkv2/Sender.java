@@ -43,7 +43,9 @@ public class Sender implements Runnable
 
         RemoteCommand command;
         if (line.equals("exit.")) {
-            command = new ExitCommand();
+        	SystemExitCode code = SystemExitCode.NORMAL;
+	        command = new ExitCommand(code);
+                        
         } else {
             command = new BroadcastCommand(userName, line);
         }
@@ -69,22 +71,16 @@ public class Sender implements Runnable
      */
     public final void run()
     {
-        try {
-            RemoteCommand command;
-            do
-            {
-                command = getCommand();
-                sendCommand(command);
-            } while (!(command instanceof ExitCommand));
+        RemoteCommand command;
+        do
+        {
+            command = getCommand();
+            sendCommand(command);
 
-            getSocket().close();
-        }
-        catch (IOException e) {
-            System.out.println("IO-Error: " + e.getMessage());
-        }
+        } while (!(command instanceof ExitCommand));
 
         System.out.println("Communication ended.");
-        System.exit(SystemExitCode.NORMAL.getCode());
+        command.execute();
     }
 
     public void setUserName(String userName) {
