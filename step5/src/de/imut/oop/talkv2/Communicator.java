@@ -4,6 +4,7 @@ import java.net.Socket;
 
 public class Communicator {
 
+    private static int instances = 0;
     private Sender sender;
     private Receiver receiver;
     private int id;
@@ -16,6 +17,9 @@ public class Communicator {
         this.receiver = new Receiver(socket);
         Thread receiverThread = new Thread(this.receiver, "Receiver");
         receiverThread.start();
+
+        this.id = instances;
+        Communicator.instances ++;
     }
 
     public Sender getSender() {
@@ -24,10 +28,6 @@ public class Communicator {
 
     public Receiver getReceiver() {
         return receiver;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getId() {

@@ -23,7 +23,6 @@ public class CommunicatorFactory {
 
     public Communicator createCommunicator(Socket socket) {
         Communicator c = new Communicator(socket);
-        c.setId(communicators.size());
         this.communicators.add(c);
         return c;
     }
